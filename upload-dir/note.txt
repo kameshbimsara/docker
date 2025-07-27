@@ -1,0 +1,431 @@
+Programming language
+ 1.Syntax
+ 2.Compiler
+
+----------------------------------------------------------------
+
+java editions
+se - standard edition
+ee - enterprise edition
+me - micro edition
+
+------------------------------------------------------------
+
+jre - java runtime environment - to run java application 
+jdk - java development kit - to develop java application
+
+currently only jdk is available to download. jre is inbuilt
+
+current version - 23
+lts - 17
+
+--------------------------------------------------------
+
+Test.class - dot class file, byte code, intermediate object file
+
+java is platform independent because it compiled into byte code that can run on any device that has jvm (java virtual machine)
+
+-------------------------------------------------------------
+
+jdk ---> 1. jre --->  jvm
+	 2. dev tools ---> compiler
+
+--------------------------------------------------------------
+
+Java Virtual Machine (JVM)
+has two tools - 1. Interpreter
+		2. JIT Compiler (Just In Time Compiler)
+
+interpreter coverts byte code into machine code line by line.
+while interpreter convert the byte code into machine code, JIT compiler inspects the process and prevent converting previously converted line and replace it with previous line.
+
+--------------------------------------------------------------
+
+source code ---> compiling ---> byte code ---> interpret by jvm
+
+-----------------------------------------------------------
+
+java.lang package automatically import by compiler while compiling. Because of that we don't have to import java.lang to input "String".
+
+-------------------------------------------------------------------------------------
+
+conversion - loku data type ekakata podi data type ekaka value ekak save kirima. - short a = 20; long b = a;
+casting - podi data type ekakata loku data type ekaka value ekak save kirimedi eka podi data type ekata convert kara save kirima - int a = 20; byte b = (byte) b;
+
+casting is manual, conversion is automatic.
+
+-------------------------------------------------------------------------
+
+conversion
+----------->
+byte ----> short ----> char ----> int ----> long ----> float ----> double
+						            <------------
+								casting
+
+------------------------------------------------------------------------------
+
+==============================================================
+
+Switch Case
+
+
+if else ladder ekaka "==" use karana awasthawaka switch case eka use karanna puluwan. 
+
+
+int num = 10;
+
+ "control variable"
+	 |
+switch (num) {
+	case 10 :
+		Sout("Number 10");
+		break;
+
+	case 11 :
+		Sout("Number 11");
+		break;
+	
+	case 12 :
+		Sout("Number 12");
+		break;
+
+	default:
+		Sout("wrong");
+		break;
+
+}
+
+* break; keyword : "FORCEFULLY TERMINATE" a executing block. "{ executing block }"
+
+* ++5 pre increment
+* 5++ post increment
+* task dekak ho kihipayak karana wita post increment eken ganne old value eka. pre incement eken ganne incremented value eka.
+
+==========================================================================================================
+
+For each loop use only with list of data. (list of data ---> array, arraylist...)
+
+{} <---- code block <--- "SCOPE"
+
+
+Variable arguments(Var Args) ---> public static void sum(int... data)
+
+
+Method overloading - creating methods in the same name changing parameter count or parameter type
+
+===================================================================================================
+
+OOP - bouthika loke thiyena onama wastuwak code ekakin nirupanaya karanna puluwnnam eka oop.
+oop kiyanne PL ekakata kotu wechcha nathi podu sankalpayak
+
+what is a class - blueprint of an object
+what is an object - an instance of a class
+
+local variable - variables create inside method scope. no default value. must be initialized before use.
+instance variable - variable create inside class scope. there is default values. int>0, double>0.0, boolean>false, String>null
+
+when it comes to oop -- instance variables are called attributes(object ekakata thiyenna puluwan dewal,proerties), 
+			methods are called behavior(object ekata karanna puluwan dewal, functionality)
+
+Static variable - belongs to the class. not the object. regular variables belongs to the objects. static variables can be called directly from class. [ClassName.staticvariable]
+
+Static method - belongs to the class. not the object. static methods can be called directly from class. [ClassName.staticmethod()]. only static methods or static variables can be called inside a static method
+
+===========================================================================================================================================
+																	   |    /|
+---------------------------------------------------------------------------------------------------------------------------------------	   |   / |	   /
+|||||constructor - create with the same name as the class, no return type, a special method invoke when an object is being created.||||	   |  <============= Notedown
+---------------------------------------------------------------------------------------------------------------------------------------	   |   \ |	   \
+																	   |    \|
+===========================================================================================================================================    
+
+method overloading - create methods in same name changing parameter count and parameter type
+constructor overloading - creating constructor in same name changing parameter count and parameter type
+default constructor - injects by compiler while compiling if we are not defined.  ---->  public Student(){} [no parameters]
+var args - variable arguments - use when we don't know the count of parameters. can be input unlimited count of parameters. must be same type[public static void add(int... num){}]
+		# public void wrongMethod(String... names, int age) { }
+		# public void correctMethod(int age, String... names) { }
+		# You can only have one varargs parameter in a method.
+		# It must be the last parameter.
+
+# creating an object means calling the constructor. [not the constructor in the class. constructor in the copy that we are creating(object)]
+# this keyword - refers the current object
+
+# instance block ----> {} -----> instance block initialize the instance variables(attributes) to default values.
+		* instance block eka aththatama run wenne na. Object eka create weddi call wena adala constructor eke code ekata udin copy wenawa. eka penne constructor ekata kalin 			  instance block eka run wenawa wage.
+			{
+				name = null;
+				age = 0;
+				salary = 0.0;
+				isMaried = false;				
+			}
+
+# static block ----> static{} ----> static block initialize static variables to default values
+		* clss file eke save wenne hard eke
+		* application eka run weddi jvm eke thiyena class loader eka class eka ram eketa load karanawa
+		* a welawedi static block eka run wenawa. (instance block eka run wenne nathi wunata static block eka run wenawa)
+		* class eka ram ekata load wenne eka parak nisa static block eka run wenneth eka parai.
+
+# when application is running - order of blocks running -->  static block ====> instance block ====> constructor
+
+
+
+# Encapsulation - data single unit ekakata wrap karala a data walata validation level eke protection ekak dena ekata kiyanawa encapsulation kiyala (Encapsulation means combining data and methods into a single unit (like a class) and 
+		  protecting the data using access control and validation.)
+	        - elcapsulation karana widiya ---> attribute private karala ewa access karanna get and set methods liyanawa 
+
+# Inheritance - yam class ekaka attributes and behaviours thawath class ekakata directly access karanna dena eka (allows one class to inherit properties and behaviors (methods) from another class. )
+
+# super - represents super class.
+# super() - represents super class's constructor. when creating a object first runs the super class's constructer and then sub class's constructer. when it isn't added compiler injects it in the sub class's constructor. 
+
+################################################################################################################################################
+## Diamond Problem in JAVA - problem faced during multiple inheritance, to give which class the priority when calling super class constructor ##
+################################################################################################################################################
+
+#################################################################################################################################
+# Java doesn't have multiple inheritance. Java has multi level inheritance - "Chamodi extends Achini", "Yasiru extends Chamodi" #
+#################################################################################################################################
+
+
+# class dekak extend wela thiyena welawaka super class type referance variable ekakata sub class type object ekak assign  karanna puluwan
+# Method overriding  -  class dekak extend wela thiyena welawaka super class eke method ekak sub class ekata include kirima method overriding.
+
+## Dynamic Method Dispatch  -  class dekak extend thiyena welawaka super class type referance variable ekata sub class type object ekak assign karala thiyeddi overrided method ekak call karama run wenne sub class eke method eka. compile time ekedi check wenne variable side eke a namin method ekak thiyenawada kiyala withrai. run time ekedi run wenne object eke side eka.
+
+## Constructor Chain - multi level inheritance waladi super() keyword eka nisa super class eken super class ekata constructor eka call weema.
+
+## hadana hama class ekakma "Object" class eken extend wela thiyenne
+
+## abstraction - hiding the complexity of implementation (logic)
+		* to have abstract method(Method without a body) class must be abstract class
+		* abstract classes can have both concrete methods(Methods with body/normal methods) and abstract methods
+		* abstract class can be 0 to 100% abstract
+
+# java interface - can only have abstract methods
+
+# can be created concrete methods in a interface using default keyword and static
+	interface Sheet3
+		default void getSum(){}
+		static void multiply(){}
+
+	calling methods  -  Sheet3 st3;
+			    st3.getSum();  ==>  Sheet3.getSum()  [Wrong]
+			    Sheet3.multiply();
+
+# abstract class ekakin ho interface ekakin object hadanna ba. hadanna puluwan reference variable witharai.
+
+
+# anonymus inner class  - creating a object from a interface without implementing interface. class eka penne nathi nisa anonymus. class ekak athule hadana nisa inner class
+	* can be used when there is 2 or 3 methods to implement and logic is not longer.
+		Sheet3 st = new Sheet3(){
+			public void m1(){logic}
+			public void m2(){logic}
+		};
+
+## marker interface  -  interface without any abstract methods
+## functional interface  -  interface has only one abstract method
+
+# lambda expression -  "->"
+		* can be used only for functional interface
+		Sheet3 sh = () ->{
+
+		};
+
+# java records - like creating class with encapsulated attributes and getter setter methods
+
+# polymorphism - single interface many forms
+		1. compiletime polymorphism - compile time ekedi detect wena (method overloading ekedi thiyenne compiletime polymorphism - can be identified the called method at the 
+		   compiletime)
+		2. runtime polymorphism - run time ekedi decide karanne run wena method eka (Method overriding and Dynamic method dispatch)
+
+==========================================================================================================
+
+Exception Handling
+
+Problems in a application ----> 1. Exception	2. Error
+		* Errors can not be handled by programmer
+		* Exceptions has to be handled by programmer
+
+Exceptions ----> 1. Compile time exception/Checked	2. Runtime exception/Un-Checked
+
+** Use "try-catch block" to handle a exception.
+		try {} catch(Exception e){}
+		# when exception comes up it crates exception type object. to catch that create the parameter, a reference variable from exception type
+
+**when handling two types of exceptions,
+	* try{} catch(Exception1 e){}catch(Exception2 e){}
+	* try{}catch(SuperClassException e){}
+	* try{}catch(Exception1 | Exception2 e){}
+
+** "throws" keyword
+		-	when a method other than main method generates an exception you can throw the exception from the method and catch it where it has been called
+
+
+				-public staic void myMethod() throws Exception{}
+
+				-try{
+					myMethod();
+				}catch(Exception e){
+					sout("insert number");
+				}
+
+** try ekata giyath nathath catch ekata giyath nathath aniwaryen execute wenna ona code line ekak thiyenawanam use karanna puluwan "finally{} block"
+		-	try{}catch(Exception e){}finally();
+
+===================================================================================================================
+
+Garbage collector  -  clear "Non Referenced Objects" in the heap memory.  [System.gc();]
+
+finalyze method from object class - garbage collector eligeble object ekaka final task eka karaganna onanam danne finalyze method ekata
+
+==========================================================================================================================================
+
+Packaging  -  * package is a folder in java
+	      * must have a web site [acpt.lk]
+
+base package - 	  * lk.acpt.app   ----> lk.acpt (web addres to backward),  app (application name) 
+
+==================================================================================================================
+
+String   --->   1. literal based string,  2. object based string
+
+1. when you create a literal based string, value saves in the heap inside the string pool(string constant pool). when create another string with the same value it does not save another value in the string pool. it shares the same value with the two variables saved in the stack memory.
+
+2. when you create a object based string, new object create every time eventhough value is the same. then the object saves in the heap and value saves in the string pool So literal based string is more memory optimized.
+
+-----------------=----------------------------------============================----------------------=
+
+final keyword 
+
+int x =9
+x=10  legal
+
+final int x = 10
+x = 20 illegal
+
+final methods can not be overrided
+
+final classes can not be extended
+
+
+===========================================================================================================================
+
+
+Wrapper Classe
+
+
+byte		Byte
+short		Short
+int		Integer
+long		Long
+float		Float
+double		Double
+char		Character
+boolean		Boolean
+
+int val1 = 10;
+Integer val2 = val1  ---> Boxing  => assigning primitive data type variable to a Wrapper class reference variable
+int val3 = val2  ---->  Un-boxing => assigning wrapper class variable to a primitive data type variable
+
+
+
+====================================================================================================
+
+
+Collection framework and Generics
+
+
+int[]  arr = new int[10];
+	# type specific
+	# fixed length
+
+ArrayList arr = new ArrayList();
+	# no fixed length
+	# no type	
+Generics  -  compile time type safe mechanism
+
+<>  -  diamond bracket
+
+ArrayList<Integer>  arr  =  new ArrayList();
+	     |
+	 Generics  -  int type array. 
+	# Must use wrapper class. Can't use primitive data types
+	# Default generic "<Object>" 
+
+HashSet set = new HashSet();
+	# removes duplicates
+	# no get method because it removes duplicates and no index for values. so no way to call the values.
+
+PriorityQue que = new PriorityQue();
+	# return  values in ascending order(sometimes does not work)
+	# no return method.
+
+HashMap map = new HashMap();
+	# add values in key, value pair  --->  map.put(1,"name");   map.put("address","panadura");
+	# generics can be applied to both the key and the value   ---->  HashMap<String, String>  =>  map.put("one",1); //wrong
+	# retrieve values via key ----> map.put("name","Vibuddha");  =>  map.get("name");
+
+
+===========================================================================================================
+
+
+## Build tool  --->  java project has many classes. to wrap the classes and generate a executable file we use a "build tool"
+		1. Apache ant
+		2. Maven
+		3. Gradle
+
+## JDK has many built in libries like util, lang. But when we need to include a "third party dependency"[Ex: mySqlconnector], there are three ways to accomplish that,
+		1. Download and manually cofigure  --->   if the build tool is Apache ant
+		2. via Maven
+		3. via Gradle
+
+
+
+=================================================================================================================
+
+# ip addrss - unique address given by the network to the device.
+
+# software server has a port to uniquely identify
+
+# hardware server has a ip address to uniquely identify
+
+# A server is a computer or program always ready to serve. It’s always listening for requests from clients and responds with the needed data or service — like sending a webpage, saving a file, or processing information.
+
+# database servers ---> 1. Document oriented database server  2. Relational database server
+
+# Document oriented  --->  has collections ---> collections has data as json objects. no schema because any kind of objects can be stored inside. collection is like a js array.
+# Relational  ---> has databses ---> databases has tables  --->  tables has data. there are relationships between tables. has a schema. only the data compatible with the tables can be stored.
+
+# in a many to many relationship, has a third table  ---->  associate table(Associate entity) 
+
+
+===========================================================================================
+
+
+JDBC
+
+affect to the data base  ------>   executeUpdate()   ---->  returns the count of affected rows(int)
+get from data base   ----->   executeQuery()   ----->  returns data as ResultSet ----->  ResultSet is like a chain. Has a needle inside out side of the chain. jumps to next buy using Resultset.next(). next() returns a Boolean value. 
+
+
+=============================================================================================
+
+
+@ Stand alone application -->  one user. one db connection  is enough. need more than one application for several locations.
+@ Enterprise application  -->  more than one user can access at a time. need more than one db connection. creating more connections called "connection pooling".
+
+# in a stand alone application, creating more than one db connection fills up the ram memory. to prevent that we use "Singleton Design Pattern"
+
+Singleton Design Pattern
+
+# prevent creating objects by making constructor "private"
+# create a method(get dbConnection) to access the constructor and make it static, so it can be called by the class name. return type DbConnection(class we use to create a connection)
+# then create a class type(DbConnection) static reference variable. so it can be accessed inside the static get method. [ private static DbConnection dbCnnection; ]
+# then make sure the class can make only one object,
+		if(dbConnection == null){
+(Static reference --> dbConnection = new DbConnection();
+Variable)		}
+		return dbConnection;
+
+			
